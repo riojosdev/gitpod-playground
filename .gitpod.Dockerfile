@@ -16,3 +16,16 @@ RUN apt-get update && apt-get install -yq \
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 
 USER gitpod
+
+# Securing the server: Firewall basics (optional, recommended)
+RUN sudo apt update \
+    && sudo apt-get install ufw -y \
+    && sudo ufw default deny incoming \
+    && sudo ufw default allow outgoing \
+    && sudo ufw allow 22/tcp \
+    && sudo ufw allow 443/tcp \
+    && sudo ufw enable \
+    && sudo ufw reload
+
+# Securing the server: Fail2ban (optional, recommended)
+RUN sudo apt-get install fail2ban -y
