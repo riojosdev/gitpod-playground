@@ -19,7 +19,7 @@ USER gitpod
 
 # Securing the server: Firewall basics (optional, recommended)
 RUN sudo apt update \
-    && sudo apt-get install ufw -yq \
+    && sudo apt-get install ufw -y \
     && sudo ufw default deny incoming \
     && sudo ufw default allow outgoing \
     && sudo ufw allow 22/tcp \
@@ -28,4 +28,4 @@ RUN sudo apt update \
     && sudo ufw reload
 
 # Securing the server: Fail2ban (optional, recommended)
-RUN sudo apt-get install fail2ban -yq
+RUN sudo apt-get install fail2ban -y
