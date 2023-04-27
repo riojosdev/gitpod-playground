@@ -4,6 +4,7 @@ FROM ubuntu:latest
 
 USER root
 RUN chmod 777 /home
+USER user
 
 # Securing the server: Firewall basics (optional, recommended)
 RUN apt update \
