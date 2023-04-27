@@ -2,6 +2,9 @@ FROM ubuntu:latest
 
 
 
+USER root
+RUN chmod 777 /home
+
 # Securing the server: Firewall basics (optional, recommended)
 RUN apt update \
     && apt-get install ufw -y \
