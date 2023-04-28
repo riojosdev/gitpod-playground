@@ -15,10 +15,12 @@ RUN apt-get update && apt-get install -yq \
 # Create the gitpod user. UID must be 33333.
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 
+USER gitpod
+
 
 
 USER root
-# RUN chmod 777 /home
+RUN chmod 777 /
 # USER user
 
 # Securing the server: Firewall basics (optional, recommended)
@@ -33,7 +35,6 @@ RUN apt update \
 
 # Securing the server: Fail2ban (optional, recommended)
 RUN sudo apt-get install fail2ban -y
-
 
 
 
