@@ -26,7 +26,7 @@ USER gitpod
 # USER user
 
 # # Securing the server: Firewall basics (optional, recommended)
-RUN apt update
+RUN sudo apt update
 #     && sudo apt-get install ufw -y \
 #     && sudo ufw default deny incoming \
 #     && sudo ufw default allow outgoing \
