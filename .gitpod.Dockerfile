@@ -1,26 +1,5 @@
 FROM ubuntu:latest
 
-
-
-USER root
-# RUN chmod 777 /home
-# USER user
-
-# Securing the server: Firewall basics (optional, recommended)
-RUN apt update \
-    && apt-get install ufw -y \
-    && ufw default deny incoming \
-    && ufw default allow outgoing \
-    && ufw allow 22/tcp \
-    && ufw allow 443/tcp \
-    && ufw enable \
-    && ufw reload
-
-# Securing the server: Fail2ban (optional, recommended)
-RUN apt-get install fail2ban -y
-
-
-
 # Install:
 # - git (and git-lfs), for git operations (to e.g. push your work).
 #   Also required for setting up your configured dotfiles in the workspace.
@@ -37,4 +16,25 @@ RUN apt-get update && apt-get install -yq \
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 
 USER gitpod
+
+
+USER root
+RUN chmod 777 /home
+USER user
+
+# Securing the server: Firewall basics (optional, recommended)
+RUN apt update \
+    && sudo apt-get install ufw -y \
+    && sudo ufw default deny incoming \
+    && sudo ufw default allow outgoing \
+    && sudo ufw allow 22/tcp \
+    && sudo ufw allow 443/tcp \
+    && sudo ufw enable \
+    && sudo ufw reload
+
+# Securing the server: Fail2ban (optional, recommended)
+RUN sudo apt-get install fail2ban -y
+
+
+
 
