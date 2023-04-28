@@ -26,7 +26,7 @@ USER gitpod
 # USER user
 
 # # Securing the server: Firewall basics (optional, recommended)
-RUN apt-get update
+# RUN apt update
 #     && sudo apt-get install ufw -y \
 #     && sudo ufw default deny incoming \
 #     && sudo ufw default allow outgoing \
@@ -44,6 +44,8 @@ USER root
 
 # Dazzle does not rebuild a layer until one of its lines are changed. Increase this counter to rebuild this layer.
 ENV TRIGGER_REBUILD=1
+
+RUN apt update
 
 # https://docs.docker.com/engine/install/ubuntu/
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
